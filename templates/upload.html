@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spreadsheet2API - Upload</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Spreadsheet2API</h1>
+
+    <form action="/upload" enctype="multipart/form-data" method="post">
+        <input name="file" type="file" required />
+        <button type="submit">Upload & Create API</button>
+    </form>
+
+    <h2>Available Tables</h2>
+    <ul>
+        {% for table in tables %}
+        <li>
+            {{ table }} — <a href="/api/{{ table }}" target="_blank">View Rows</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

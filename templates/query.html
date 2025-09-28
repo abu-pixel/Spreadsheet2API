@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spreadsheet2API - Query Tester</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Spreadsheet2API Query Tester</h1>
+
+    <div class="query-form">
+        <label>Table:
+            <select id="endpoint">
+                {% for table in tables %}
+                <option value="/api/{{ table }}">{{ table }}</option>
+                {% endfor %}
+            </select>
+        </label>
+
+        <label>Limit:
+            <input type="number" id="limit" value="10">
+        </label>
+
+        <label>Search:
+            <input type="text" id="search" placeholder="Search keyword...">
+        </label>
+
+        <label>Filter column:
+            <input type="text" id="filter_col" placeholder="Column name">
+        </label>
+
+        <label>Filter value:
+            <input type="text" id="filter_val" placeholder="Value">
+        </label>
+
+        <button onclick="runQuery()">Run Query</button>
+    </div>
+
+    <h2>Response:</h2>
+    <pre id="output">{ results will appear here }</pre>
+
+    <script>
+        async function runQuery() {
+            const endpoint = document.getElementById("endpoint").value;
+            const limit = document.getElementById("limit").value;
+            const search = document.getElementById("search").value;
+            const filterCol = document.getElementById("filter_col").value;
+            const filterVal = document.getElementById("filter_val").value;
+
+            let url = endpoint + "?";
+            if (limit) url += "limit=" + encodeURIComponent(limit) + "&";
+            if (search) url += "search=" + encodeURIComponent(search) + "&";
+            if (filterCol && filterVal) {
+                url += encodeURIComponent(filterCol) + "=" + encodeURIComponent(filterVal) + "&";
+            }
+
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+            } catch (err) {
+                document.getElementById("output").textContent = "Error: " + err;
+            }
+        }
+    </script>
+</body>
+</html>

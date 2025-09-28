@@ -1,0 +1,129 @@
+/* ==============================
+   GLOBAL STYLES
+============================== */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+h1, h2 {
+    margin-top: 30px;
+    color: #4CAF50;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+input, select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ==============================
+   FORM STYLING
+============================== */
+form, .query-form {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+/* ==============================
+   TABLES LIST
+============================== */
+ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    max-width: 500px;
+}
+
+li {
+    background: #fff;
+    margin-bottom: 12px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ==============================
+   RESPONSE BOX
+============================== */
+pre, code {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 500px;
+    overflow-x: auto;
+    margin-top: 15px;
+    font-size: 0.95em;
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    form, .query-form, ul, pre, code {
+        width: 90%;
+    }
+}
